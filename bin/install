@@ -8,6 +8,7 @@ install() {
   cd $build_dir
 
   git clone --depth 1 --recursive https://github.com/aria2/aria2
+  cd aria2
   autoreconf -i
   ./configure --prefix=$install_dir
   make install || exit 1
