@@ -7,11 +7,9 @@ install() {
   build_dir=$(mktemp -d)
   cd $build_dir
 
-  # git clone https://github.com/mscalora/htop
-  git clone --depth 1 --recursive https://github.com/htop-dev/htop
-  cd htop
-  sh autogen.sh
-  ./configure --prefix=$install_dir --disable-unicode
+  git clone --depth 1 --recursive https://github.com/aria2/aria2
+  autoreconf -i
+  ./configure --prefix=$install_dir
   make install || exit 1
 }
 
